@@ -1,0 +1,6 @@
+{
+  "nuevos_posts": [
+    { "title": "Proyecto final QA", "body": "Post creado desde el framework de automatización", "userId": 1 },
+    { "title": "Pruebas de API", "body": "Validando POST con Requests y Pytest", "userId": 7 }
+  ]
+}
