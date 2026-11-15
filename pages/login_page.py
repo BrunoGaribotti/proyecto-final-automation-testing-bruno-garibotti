@@ -26,5 +26,10 @@ class LoginPage(BasePage):
         self.escribir(self.CAMPO_PASSWORD, password)
         self.click(self.BOTON_LOGIN)
 
+    def esta_cargada(self):
+        """Espera a que el formulario de login esté visible (lanza TimeoutException si no)."""
+        self.encontrar(self.BOTON_LOGIN)
+        return self.esta_visible(self.CAMPO_USUARIO)
+
     def obtener_mensaje_error(self):
         return self.obtener_texto(self.MENSAJE_ERROR)

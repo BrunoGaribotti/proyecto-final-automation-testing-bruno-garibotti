@@ -92,4 +92,6 @@ class InventoryPage(BasePage):
     def logout(self):
         logger.info("Cerrando sesión")
         self.click(self.BOTON_MENU)
+        # El menú lateral se abre con una animación: esperar a que el link sea visible.
+        self.encontrar(self.LINK_LOGOUT)
         self.click(self.LINK_LOGOUT)
