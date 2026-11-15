@@ -1,14 +1,15 @@
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+"""Funciones reutilizables entre tests de UI."""
 
-URL = "https://www.saucedemo.com/"
+from pages.inventory_page import InventoryPage
+from pages.login_page import LoginPage
+
+USUARIO_VALIDO = "standard_user"
+PASSWORD_VALIDO = "secret_sauce"
 
 
-def login(driver, usuario="standard_user", password="secret_sauce"):
-    driver.get(URL)
-    espera = WebDriverWait(driver, 10)
-    espera.until(EC.visibility_of_element_located((By.ID, "user-name"))).send_keys(usuario)
-    driver.find_element(By.ID, "password").send_keys(password)
-    driver.find_element(By.ID, "login-button").click()
-    espera.until(EC.url_contains("/inventory.html"))
+def login(driver, usuario=USUARIO_VALIDO, password=PASSWORD_VALIDO):
+    """Inicia sesión y devuelve la página de inventario ya cargada."""
+    LoginPage(driver).abrir_login().login(usuario, password)
+    inventario = InventoryPage(driver)
+    inventario.esperar_url(InventoryPage.RUTA)
+    return inventario
