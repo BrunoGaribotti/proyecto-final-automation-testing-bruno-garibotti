@@ -34,4 +34,5 @@ def test_logout(driver):
     inventario.logout()
 
     login_page = LoginPage(driver)
-    assert login_page.esta_visible(LoginPage.BOTON_LOGIN), "No se volvió a la pantalla de login"
+    assert login_page.esta_cargada(), "No se volvió a la pantalla de login"
+    assert "inventory.html" not in login_page.url_actual()
