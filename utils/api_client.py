@@ -28,7 +28,7 @@ class ApiClient:
             "Respuesta %s en %.3fs: %s",
             respuesta.status_code,
             respuesta.elapsed.total_seconds(),
-            respuesta.text[:200],
+            " ".join(respuesta.text.split())[:200],  # cuerpo en una sola línea
         )
         return respuesta
 

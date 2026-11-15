@@ -1,0 +1,39 @@
+name: Pruebas automatizadas
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    env:
+      HEADLESS: "1"
+
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      # Google Chrome ya viene instalado en ubuntu-latest; Selenium Manager descarga el driver.
+      - name: Ejecutar pruebas
+        run: pytest
+
+      - name: Publicar reportes, capturas y logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reportes-de-pruebas
+          path: |
+            reports/
+            logs/
+          retention-days: 14
