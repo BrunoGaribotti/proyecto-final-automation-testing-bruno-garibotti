@@ -1,0 +1,19 @@
+{
+  "compras": [
+    {
+      "caso": "un_producto",
+      "productos": ["Sauce Labs Backpack"],
+      "comprador": { "nombre": "Bruno", "apellido": "Garibotti", "codigo_postal": "1414" }
+    },
+    {
+      "caso": "dos_productos",
+      "productos": ["Sauce Labs Bike Light", "Sauce Labs Bolt T-Shirt"],
+      "comprador": { "nombre": "Ana", "apellido": "Pérez", "codigo_postal": "5000" }
+    }
+  ],
+  "datos_incompletos": [
+    { "caso": "sin_nombre", "nombre": "", "apellido": "Garibotti", "codigo_postal": "1414", "mensaje_esperado": "Error: First Name is required" },
+    { "caso": "sin_apellido", "nombre": "Bruno", "apellido": "", "codigo_postal": "1414", "mensaje_esperado": "Error: Last Name is required" },
+    { "caso": "sin_codigo_postal", "nombre": "Bruno", "apellido": "Garibotti", "codigo_postal": "", "mensaje_esperado": "Error: Postal Code is required" }
+  ]
+}

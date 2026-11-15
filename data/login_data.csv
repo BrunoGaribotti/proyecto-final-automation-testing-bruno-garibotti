@@ -1,0 +1,7 @@
+caso,usuario,password,debe_funcionar,mensaje_esperado
+usuario_estandar,standard_user,secret_sauce,true,
+usuario_performance,performance_glitch_user,secret_sauce,true,
+usuario_bloqueado,locked_out_user,secret_sauce,false,"Epic sadface: Sorry, this user has been locked out."
+password_incorrecta,standard_user,clave_incorrecta,false,Epic sadface: Username and password do not match any user in this service
+usuario_vacio,,secret_sauce,false,Epic sadface: Username is required
+password_vacia,standard_user,,false,Epic sadface: Password is required

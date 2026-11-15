@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Artefactos generados en cada ejecución
+reports/*.html
+reports/screenshots/*.png
+logs/*.log
